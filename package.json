@@ -1,0 +1,19 @@
+{
+  "name": "squealing-governor-overflow-byqkl",
+  "productName": "squealing-governor-overflow-byqkl",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "src/main.js",
+  "version": "1.0.0",
+  "author": "lamquocminhhuy",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^8.2.0",
+    "electron-reload": "^1.5.0",
+    "mysql2": "^2.3.0",
+    "promise-mysql": "^5.0.4"
+  },
+  "devDependencies": {}
+}
