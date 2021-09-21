@@ -7,13 +7,16 @@
   "version": "1.0.0",
   "author": "lamquocminhhuy",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-win": "electron-packager .  --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Production Management Application\""
   },
   "dependencies": {
-    "electron": "^8.2.0",
     "electron-reload": "^1.5.0",
     "mysql2": "^2.3.0",
     "promise-mysql": "^5.0.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "electron": "^8.2.0",
+    "electron-packager": "^15.4.0"
+  }
 }
