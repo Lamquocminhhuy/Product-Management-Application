@@ -19,16 +19,6 @@ const cardTitles = document.querySelectorAll('h3.card-title');
 const productsList = document.getElementById('products')
 let products = []
 
-// Delete Product
-
-
-
-
-
-
-
-
-
 productForm.addEventListener('submit', async (event) => {
     event.preventDefault();
    
@@ -42,14 +32,25 @@ productForm.addEventListener('submit', async (event) => {
     const result = await main.createProduct(newProduct);
     console.log(result);
   
+    productForm.reset();
+    // location.reload();
     getProducts();
-  
 })
+function deleteProduct(id){
+    const response = confirm("Are you sure you want to delete this product?")
+    if(response){
+        const result = main.deleteProduct(id);
+        getProducts();
+    }
 
+    return;
+   
+}
 
 function renderProducts(products) {
     var inStock = 0;
     var outOfStock = 0;
+    table.children[0].innerHTML = ''
 
     products.forEach((product,index) => {
         var row = document.createElement('tr');
@@ -64,7 +65,7 @@ function renderProducts(products) {
             <td>${product.amount == 0 ? "Out of stock" : "In stock"}</td>
             <td class="d-flex justify-content-center">
             <a class="btn btn-sm btn-info" href="/update_order/4/">Update</a>
-            <button id="deleteProduct" type="submit" class="btn btn-danger">Delete</button>
+            <button id="deleteProduct" type="submit" class="btn btn-danger" onclick="deleteProduct(${product.id})">Delete</button>
             </td>
         `;
         table.children[0].appendChild(row);

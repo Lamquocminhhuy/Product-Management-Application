@@ -9,7 +9,7 @@ async function createProduct(product) {
     // console.log(product)
     product.amount = parseInt(product.amount)
   const result = await conn.query(`INSERT INTO Products (name, description, amount, priceId, size) VALUES ('${product.name}', '${product.description}', ${product.amount}, '${product.priceId}', '${product.size}')`)
-  console.log(result)
+  // console.log(result)
 
   new Notification({
     title: 'Test',
@@ -33,6 +33,17 @@ async function getProducts(product) {
   return results
 }
 
+async function deleteProduct(id){
+  const conn = await getConnection();
+  const result = await conn.query('DELETE FROM Products WHERE id = ?', id);
+  // console.log(result)
+
+
+  new Notification({
+    title: 'Test',
+    body: 'Deleted Product',
+  }).show();
+}
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -79,5 +90,6 @@ app.on('window-all-closed', function () {
 module.exports = {
   createProduct,
   createWindow,
-  getProducts
+  getProducts,
+  deleteProduct
 }
