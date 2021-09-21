@@ -3,16 +3,15 @@ const {app, BrowserWindow, Notification} = require('electron')
 const path = require('path')
 const { getConnection } = require("./database") 
 
-async function createProduct(product) {
+ let createProduct = async (product) => {
   try{
     const conn = await getConnection();
-    // console.log(product)
     product.amount = parseInt(product.amount)
-  const result = await conn.query(`INSERT INTO Products (name, description, amount, price, size) VALUES ('${product.name}', '${product.description}', ${product.amount}, '${product.priceId}', '${product.size}')`)
-  // console.log(result)
+    const result = await conn.query(`INSERT INTO Products (name, description, amount, price, size) VALUES ('${product.name}', '${product.description}', ${product.amount}, '${product.priceId}', '${product.size}')`)
+
 
   new Notification({
-    title: 'Test',
+    title: 'Product Management Application',
     body: 'New Product Saved Successfully',
   }).show();
 
@@ -25,7 +24,7 @@ async function createProduct(product) {
 
 }
 
-async function getProducts(product) {
+ let getProducts = async (product) =>{
   const conn = await getConnection();
   const results = await conn.query('SELECT * FROM Products')
   // console.log(results)
@@ -33,35 +32,29 @@ async function getProducts(product) {
   return results
 }
 
-async function deleteProduct(id){
+let deleteProduct = async (id) => {
   const conn = await getConnection();
   const result = await conn.query('DELETE FROM Products WHERE id = ?', id);
   // console.log(result)
 
 
   new Notification({
-    title: 'Test',
+    title: 'Product Management Application',
     body: 'Deleted Product',
   }).show();
 }
 
-async function getProductById(id){
+let getProductById = async (id) => {
   const conn = await getConnection();
   const result = await conn.query('SELECT * FROM Products WHERE id = ?', id);
-  return result[0];
-
-
-  
+  return result[0]; 
 }
 
-async function updateProduct(id, product){
+let updateProduct = async (id, product) => {
   const conn = await getConnection();
   const result = await conn.query(`UPDATE Products SET name = '${product.name}', description =  '${product.description}',
    amount = ${product.amount} , price = '${product.priceId}', size = '${product.size }' WHERE id = ?`,id);
-  return result[0];
-
-
-  
+  return result[0]; 
 }
 
 function createWindow () {
@@ -78,10 +71,10 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('src/ui/index.html')
+  mainWindow.loadFile('src/views/index.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished

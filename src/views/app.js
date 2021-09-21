@@ -16,8 +16,8 @@ const cardTitles = document.querySelectorAll("h3.card-title");
 
 const exitModal = document.querySelector(".btn-close");
 
-// Render Product
 
+// Create Product
 let products = [];
 let edit = false;
 let productId = "";
@@ -47,6 +47,7 @@ productForm.addEventListener("submit", async (event) => {
   getProducts();
 });
 
+// Delete Product
 let deleteProduct = (id) => {
   const response = confirm("Are you sure you want to delete this product?");
   if (response) {
@@ -57,6 +58,7 @@ let deleteProduct = (id) => {
   return;
 }
 
+// Update Product
  let updateProduct = async (id) => {
   console.log(title)
   title.innerHTML = "Update Product"
@@ -70,6 +72,8 @@ let deleteProduct = (id) => {
   edit = true;
   productId = product.id;
 }
+
+// Render Product
 let renderProducts = (products) => {
   var inStock = 0;
   var outOfStock = 0;
@@ -113,15 +117,19 @@ let renderProducts = (products) => {
   cardTitles[2].innerHTML = outOfStock; // Out of Stockv
 }
 
+
 let getProducts = async () => {
   products = await main.getProducts();
   renderProducts(products);
  
 };
 
+// Change Modal Tile
 let changeTitle = () => {
     title.innerHTML = "Create Product"
 }
+
+
 async function init() {
   await getProducts();
 }
