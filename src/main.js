@@ -8,7 +8,7 @@ async function createProduct(product) {
     const conn = await getConnection();
     // console.log(product)
     product.amount = parseInt(product.amount)
-  const result = await conn.query(`INSERT INTO Products (name, description, amount, priceId, size) VALUES ('${product.name}', '${product.description}', ${product.amount}, '${product.priceId}', '${product.size}')`)
+  const result = await conn.query(`INSERT INTO Products (name, description, amount, price, size) VALUES ('${product.name}', '${product.description}', ${product.amount}, '${product.priceId}', '${product.size}')`)
   // console.log(result)
 
   new Notification({
@@ -28,7 +28,7 @@ async function createProduct(product) {
 async function getProducts(product) {
   const conn = await getConnection();
   const results = await conn.query('SELECT * FROM Products')
-  console.log(results)
+  // console.log(results)
 
   return results
 }
@@ -44,6 +44,26 @@ async function deleteProduct(id){
     body: 'Deleted Product',
   }).show();
 }
+
+async function getProductById(id){
+  const conn = await getConnection();
+  const result = await conn.query('SELECT * FROM Products WHERE id = ?', id);
+  return result[0];
+
+
+  
+}
+
+async function updateProduct(id, product){
+  const conn = await getConnection();
+  const result = await conn.query(`UPDATE Products SET name = '${product.name}', description =  '${product.description}',
+   amount = ${product.amount} , price = '${product.priceId}', size = '${product.size }' WHERE id = ?`,id);
+  return result[0];
+
+
+  
+}
+
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -91,5 +111,7 @@ module.exports = {
   createProduct,
   createWindow,
   getProducts,
-  deleteProduct
+  deleteProduct,
+  getProductById,
+  updateProduct
 }
