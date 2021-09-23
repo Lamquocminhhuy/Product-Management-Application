@@ -3,6 +3,7 @@ const {app, BrowserWindow, Notification} = require('electron')
 const path = require('path')
 const { getConnection } = require("./database") 
 
+// Product Page
  let createProduct = async (product) => {
   try{
     const conn = await getConnection();
@@ -56,6 +57,8 @@ let updateProduct = async (id, product) => {
    amount = ${product.amount} , price = '${product.priceId}', size = '${product.size }' WHERE id = ?`,id);
   return result[0]; 
 }
+//
+
 
 function createWindow () {
   // Create the browser window.
