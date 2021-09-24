@@ -71,6 +71,9 @@ let deleteProduct = (id) => {
 
   edit = true;
   productId = product.id;
+
+ 
+ 
 }
 
 // Render Product
@@ -128,6 +131,7 @@ let getProducts = async () => {
 let changeTitle = () => {
     title.innerHTML = "Create Product"
 }
+
 
 
 async function init() {

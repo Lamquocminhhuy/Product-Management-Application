@@ -8,9 +8,11 @@ const connection = mysql.createConnection({
 });
 
 function getConnection() {
-
+  console.log(connection);
   return connection;
   
 }
 
-module.exports = { getConnection };
+module.exports = { 
+  getConnection 
+};
