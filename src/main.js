@@ -1,7 +1,20 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, Notification} = require('electron')
 const path = require('path')
-const { getConnection } = require("./database") 
+const { getConnection } = require("./config/database") 
+
+
+// Test for order page .
+
+let createPerson = async (Person) => {
+
+  const conn = await getConnection();
+
+  const result = await conn.query(`INSERT INTO Persons (Id, LastName, Age) VALUES (${Person.pid}, '${Person.pname}', ${Person.page})`);
+
+}
+
+//  <!--------------------------------------------------------------------------------------------------------->
 
 // Product Page
  let createProduct = async (product) => {
@@ -74,7 +87,7 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('src/views/index.html')
+  mainWindow.loadFile('src/views/login.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -109,5 +122,6 @@ module.exports = {
   getProducts,
   deleteProduct,
   getProductById,
-  updateProduct
+  updateProduct,
+  createPerson
 }

@@ -1,0 +1,86 @@
+:root {
+    /* Primary color */
+    --clr-lightgreen: #b6db6b;
+    --clr-green: #7ca334;
+    --clr-darkgreen: #2f5b25;
+    --clr-orange: #E8A62D;
+    --clr-gray: #ECEADA;
+    --clr-dark: #525969;
+    --clr-berry: #5C2622;
+    --clr-brown:  #b78b58;
+  
+    /* Other setting */
+    --border-radius: 25px;
+    --transition: all 0.2s linear;
+    --spacing: 0.1rem;
+    --radius: 0.25rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    --max-width: 1170px;
+  }
+  
+  body {
+      background-color: var(--clr-darkgreen);
+  }
+  
+  .container h1 {
+      color: var(--clr-berry);
+  }
+  
+  .login {
+      margin: 4rem auto;
+      padding: 1rem 2rem;
+      width: 25rem;
+      height: 28rem;
+      border-radius: 10px;
+      background-color: white;
+  }
+  
+  
+  
+  .content {
+      margin: 1rem auto;
+  }
+  
+  .col-form-label {
+      margin-left: 1.2rem;
+  }
+  
+  .title{
+      text-align: center;
+      color: var(--clr-orange);
+  }
+  
+  
+  
+  .btn-form {
+      border-radius: var(--border-radius);
+      border: none;
+      outline: none;
+      font-weight: bold;
+      color: white;
+      background: var(--clr-orange);
+  
+  }
+  
+
+  
+  .btn-login {
+      margin: 4rem auto .5rem;
+      padding: .8rem 8rem;
+  }
+  
+  .btn-form:hover {
+      opacity: .5;
+      transition: var(--transition);
+  }
+  
+  .form-control {
+      margin: .5rem auto 1rem;
+  }
+  
+
+  
+  
+  
+      
