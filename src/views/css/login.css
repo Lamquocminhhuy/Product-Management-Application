@@ -20,7 +20,8 @@
   }
   
   body {
-      background-color: var(--clr-darkgreen);
+      /* background-color: var(--clr-darkgreen); */
+      background: url('https://www.packagingdigest.com/sites/packagingdigest.com/files/Gummy%20bears%2072%20dpi.jpg') no-repeat;
   }
   
   .container h1 {
@@ -34,6 +35,7 @@
       height: 28rem;
       border-radius: 10px;
       background-color: white;
+      
   }
   
   

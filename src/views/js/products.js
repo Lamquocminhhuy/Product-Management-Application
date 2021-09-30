@@ -3,12 +3,14 @@ const main = remote.require("./main.js");
 
 const productForm = document.getElementById("productForm");
 
+ 
 const productName = document.getElementById("name");
 const productPrice = document.getElementById("priceId");
 const productDescription = document.getElementById("description");
 const productSize = document.getElementById("size");  
 const productAmount = document.getElementById("amount");
 const table = document.getElementById("table");
+// Modal Title
 const title = document.getElementById("title");
 
 // Count
@@ -76,10 +78,16 @@ let deleteProduct = (id) => {
  
 }
 
+let getProducts = async () => {
+  products = await main.getProducts();
+  renderProducts(products);
+ 
+};
+
 // Render Product
 let renderProducts = (products) => {
-  var inStock = 0;
-  var outOfStock = 0;
+  let inStock = 0;
+  let outOfStock = 0;
   table.children[0].innerHTML = `
     <tr>
     <th>#</th>
@@ -117,15 +125,11 @@ let renderProducts = (products) => {
 
   cardTitles[0].innerHTML = products.length; // Total product
   cardTitles[1].innerHTML = inStock; // In stock
-  cardTitles[2].innerHTML = outOfStock; // Out of Stockv
+  cardTitles[2].innerHTML = outOfStock; // Out of Stock
 }
 
 
-let getProducts = async () => {
-  products = await main.getProducts();
-  renderProducts(products);
- 
-};
+
 
 // Change Modal Tile
 let changeTitle = () => {

@@ -25,7 +25,8 @@ let createPerson = async (Person) => {
 
 
   new Notification({
-    title: 'Product Management Application',
+
+    title: 'Candy Management App',
     body: 'New Product Saved Successfully',
   }).show();
 
@@ -53,7 +54,7 @@ let deleteProduct = async (id) => {
 
 
   new Notification({
-    title: 'Product Management Application',
+    title: 'Candy Management App',
     body: 'Deleted Product',
   }).show();
 }
@@ -76,8 +77,8 @@ let updateProduct = async (id, product) => {
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 720,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,

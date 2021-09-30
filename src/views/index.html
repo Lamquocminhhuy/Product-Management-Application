@@ -16,7 +16,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/style.css">
 
-  <title>Product Management Application</title>
+  <title>Candy Management App</title>
 
 </head>
 
@@ -94,28 +94,26 @@
         <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#productModal"
           onclick="changeTitle()">Add Product</button>
 
-        <div class="modal" id="productModal">
+        <div class="modal fade" id="productModal">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 id="title" class="modal-title">Add Product</h4>
+                <h4 id="title" class="modal-title text-center"></h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
 
-
-
-                <form class="row g-3" method="POST" enctype="multipart/form-data" id="productForm">
+                <form class="row g-3" id="productForm">
 
                   <div class="col-md-12">
-                    <label for="inputEmail4" class="form-label">Product Name</label>
-                    <input type="text" class="form-control" name="name" id="name">
+                    <label class="form-label">Product Name</label>
+                    <input type="text" class="form-control"  id="name">
                   </div>
                   <div class="col-md-6">
 
-                    <label for="inputPassword4" class="form-label">Price</label>
+                    <label  class="form-label">Price</label>
 
-                    <select id="priceId" class="form-control" name="priceId">
+                    <select id="priceId" class="form-control" >
 
                       <option value="50">50 $</option>
                       <option value="100">100 $</option>
@@ -126,7 +124,7 @@
                   </div>
                   <div class="col-6">
                     <label class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description" name="description">
+                    <input type="text" class="form-control" id="description">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">Size</label>
@@ -140,7 +138,7 @@
                   </div>
                   <div class="col-6">
                     <label class="form-label">Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount">
+                    <input type="text" class="form-control" id="amount" >
                   </div>
 
                   <div class="col-12">
