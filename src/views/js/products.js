@@ -102,7 +102,8 @@ let renderProducts = (products) => {
   `;
 
   products.forEach((product, index) => {
-    var row = document.createElement("tr");
+    let row = document.createElement("tr");
+    
     row.innerHTML = `
         
             <td>${index + 1}</td>
@@ -110,7 +111,7 @@ let renderProducts = (products) => {
             <td>${product.name}</td>
             <td>${product.description}</td>
             <td>${product.price} $</td>
-            <td>${product.amount}</td>
+            <td class="productAmount">${product.amount}</td>
             <td>${product.size}</td>
             <td>${product.amount == 0 ? "Out of stock" : "In stock"}</td>
             <td class="d-flex justify-content-center">
@@ -119,6 +120,7 @@ let renderProducts = (products) => {
             <button id="deleteProduct" type="submit" class="btn btn-danger" onclick="deleteProduct(${product.id})">Delete</button>
             </td>
         `;
+    product.amount == 0 ? row.children[5].style.color = "red" : row.children[5].style.color = "black";
     table.children[0].appendChild(row);
     product.amount != 0 ? inStock++ : outOfStock++;
   });
