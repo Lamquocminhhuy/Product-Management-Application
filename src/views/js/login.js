@@ -13,7 +13,6 @@
      }else if(username.value != 'admin' && password.value === 'admin') {
          alertLogin.innerHTML = '<p class="text-center" style="color:red;">Wrong username! </p>'
          
-     
      }else if(password.value != 'admin' && username.value === 'admin') {
          alertLogin.innerHTML = '<p class="text-center" style="color:red;">Wrong password! </p>'
 
